@@ -11,7 +11,7 @@ import requests
 print('enter url')
 url = input()
 # example url 'https://google.com/'
-dir_path = 'D:/web_scrubber_app'
+dir_path = 'C:/tmp/web_scrubber/'
 file_name = 'test_html.txt'
 full_save_path = os.path.join(dir_path, file_name)
 
@@ -31,7 +31,6 @@ def handle_images():
 
     for index, image in enumerate(images):
         image_url = 'HTTPS:' + image.get("src")
-        print(images)
         image_extension = image_url.split(".")[-1]
 
         image_bytes = requests.get(image_url).content
@@ -44,3 +43,5 @@ def handle_images():
 save_html_to_file()
 
 handle_images()
+
+print("see downloaded files in " + dir_path + " directory ")
